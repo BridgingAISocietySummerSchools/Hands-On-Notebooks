@@ -1,132 +1,58 @@
-# Hands-On-Notebooks 📓🧑‍💻
+# Hands-On Notebooks 📓🧑‍💻
 
-> ⚠️ _This repository is still being updated. Expect occasional changes in structure, content, and setup instructions._
+> ⚠️ _This repository is still being updated. Expect changes in structure, content, and setup instructions._
 > _Last updated: July 2025_
 
-![Build Status](https://github.com/knutzk/ml-workshop/actions/workflows/build_run_test.yml/badge.svg)
+![Build Status](https://github.com/BridgingAISocietySummerSchools/Hands-On-Notebooks/actions/workflows/build_run_test.yml/badge.svg)
 
-A collection of Jupyter notebooks to teach you the **basics of machine learning**.
-They provide out-of-the-box code examples to explore and understand key ML algorithms.
-
----
-
-## 📘 About This Repository
-
-Almost all code examples are taken from or inspired by:
-
-> [3] A. Géron, _Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow_, 3rd edition, O'Reilly 2022, ISBN: 978-1098125974
-> [GitHub repository](https://github.com/ageron/handson-ml3)
-
-We recommend studying the book alongside these notebooks.
-To acknowledge Géron’s work, this repository uses the same **Apache 2.0 License** — please follow its terms when using or distributing this content.
+A curated collection of **Jupyter notebooks** to explore and teach the fundamentals of **machine learning**.
+These notebooks are practical, beginner-friendly, and support our interdisciplinary summer school curriculum.
 
 ---
 
-## 🚀 Run on Google Colab
+## 🚀 Quick Start
 
-Want to run the notebooks without installing anything locally?
-Use [Google Colab](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/) — all you need is a Google account.
+You can run all notebooks without installing anything using Google Colab:
+👉 [Open with Google Colab](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/)
 
-📎 [Open with Google Colab](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/)
-
----
-
-## 🧪 Viewing the Notebooks
-
-You can explore notebook contents in your browser via:
-
-- [Google Colab](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/)
-- [Jupyter nbviewer](https://nbviewer.jupyter.org/github/knutzk/ml-workshop/)
-- Or simply open any notebook directly on GitHub
-
-For pre-executed notebooks, check the `md_output/` directory.
+If you prefer to run notebooks locally (e.g. via Anaconda, conda, Docker, or virtualenv), see the full guide in:
+📄 [INSTALLATION.md](INSTALLATION.md)
 
 ---
 
-## ⚙️ Installing Python
+## 📘 What's Inside?
 
-We recommend using **Anaconda** or **virtual environments**.
+These notebooks are designed to:
 
-Detailed setup instructions are in [INSTALLATION.md](INSTALLATION.md), including:
+- Introduce essential machine learning concepts using **real code**
+- Support hands-on sessions in our summer school programs
+- Encourage experimentation and interdisciplinary exploration
 
-- Anaconda Navigator setup (Windows/macOS)
-- Conda CLI setup (Linux/macOS)
-- Docker-based installation
-- Expert setup without Anaconda
+The materials are inspired by and adapted from:
+
+**A. Géron, _Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow_, 3rd ed., O’Reilly 2022**
+GitHub source: [ageron/handson-ml3](https://github.com/ageron/handson-ml3)
+
+We gratefully acknowledge Géron’s work and share our materials under the same terms (see below).
 
 ---
 
-### 📥 1. Obtain a Copy of This Repository
+## 📂 How to Use
 
-Via GitHub:
+- Open notebooks on [Google Colab](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/)
+- Or clone this repository and run them locally
+- Pre-executed notebooks with output are available in the `md_output/` folder
+- Setup instructions for Anaconda, conda CLI, Docker, and expert users are in [INSTALLATION.md](INSTALLATION.md)
 
-- Click the green **Code** button and select “Download ZIP”
-- Unpack the archive on your system
+---
 
-Via `git`:
+## ⚖️ License
 
-```bash
-git clone https://github.com/knutzk/ml-workshop.git
-```
+This repository uses the **Apache 2.0 License**, in line with the original licensing terms of [A. Géron’s materials](https://github.com/ageron/handson-ml3).
 
-### 🧭 2a) Setup with Anaconda Navigator (Windows/macOS)
+See [LICENSE](LICENSE) for details.
 
-1. Open Anaconda Navigator
-2. Go to Environments → Import
-3. Select ml-environment.yml from this repo
-4. Name the environment (e.g., ml-workshop)
-5. Import and wait for installation
-6. Activate → Open with Jupyter Notebook
+---
 
-### 💻 2b) Setup with Conda (Linux/macOS)
-
-```bash
-# Activate base conda if needed
-source <path-to-conda>/bin/activate
-conda init
-
-# Create and activate the environment
-cd <path-to-repo>
-conda env create -f ml-environment.yml
-conda activate ml
-jupyter notebook
-```
-
-### 🧪 3) Run the First Notebook
-
-Open `01_test_notebook.ipynb` and follow the instructions to verify your installation.
-
-To stop Jupyter (if running via terminal), use CTRL+C.
-To deactivate the environment:
-
-```bash
-conda deactivate
-```
-
-### 🐳 Docker Setup (Optional)
-
-To build the container:
-
-```bash
-cd <path-to-repo>
-docker build -t ml-workshop-image .
-```
-
-To run it:
-
-```bash
-docker run --rm -u $(id -u):$(id -g) -p 8888:8888 -v $PWD:/data ml-workshop-image
-```
-
-Visit http://localhost:8888
-Use the token printed in the terminal.
-
-### 🧠 Expert Setup (Without Anaconda)
-
-You may use your own virtual environments, `venv`, or tools like `pyenv`.
-
-Install at minimum:
-- scikit-learn 1.2.x
-- tensorflow 2.15.x
-
-Then launch jupyter notebook in the repo directory and open the files directly.
+This repository is maintained as part of the
+**[Bridging AI & Society Summer Schools](https://github.com/BridgingAISocietySummerSchools)** initiative.

@@ -1,45 +1,117 @@
-# Anaconda installation instructions
 
-This page provides a short guide for installing python on your computer using
-the _anaconda_ package management system. _anaconda_ is a distribution for the
-python programming language, that not only installs python on your system, but
-also provides functionalities for downloading, installing and maintaining python
-packages.
+# INSTALLATION.md
 
-_anaconda_ can be obtained from the project's website:
-[https://www.anaconda.com/distribution/](https://www.anaconda.com/distribution/).
-Downloads exist for Windows, macOS as well as Linux – please choose the
-appropriate installer for your operating system. Graphical installers are
-provided for Windows and macOS, that is, you just open the downloaded `.exe` or
-`.pkg` file and follow the on-screen instructions for installation. For Linux,
-there is a command-line-based installer, which is to be downloaded and then
-executed in the shell.
+## 🛠️ How to Set Up the Hands-On ML Notebooks Locally
 
-We strongly recommend installing _anaconda_ for your personal user account only.
-That is, on macOS and Linux, the installation will be done in
-`home/<user>/anaconda3`. This way, the installation will not affect any
-system-wide settings, and is generally a little more robust. If you need more
-help with downloading and installing _anaconda_ on your system, the documentation
-pages provide [installation
-instructions](https://docs.anaconda.com/anaconda/install/), too. Here are the
-direct links for Windows, macOS and Linux:
+This guide walks you through installing everything you need to run the notebooks in this repository. We recommend using **Anaconda**, a free Python distribution that includes package management and environment setup tools.
 
-* [Installing on Windows](https://docs.anaconda.com/anaconda/install/windows/)
-* [Installing on macOS](https://docs.anaconda.com/anaconda/install/mac-os/)
-* [Installing on Linux](https://docs.anaconda.com/anaconda/install/linux/)
+If you prefer not to install anything, you can use Google Colab instead:
+👉 [Open in Colab](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/)
 
-For graphical installers (on Windows and macOS) you can verify the installation
-by opening the newly installed application "Anaconda Navigator". If this opens
-the Anaconda Navigator window, you're done with the installation!
+---
 
-In case you used a command-line-based installer (Linux, but also macOS), you
-will also be prompted: "Do you wish the installer to initialize Anaconda3 by
-running conda init?" We recommend entering "yes" to set up _anaconda_ for
-command-line use correctly. Close and reopen your shell, then check whether the
-conda command exists and returns something, e.g. by typing `conda list`. This
-should return a (more or less) long list of installed python packages. In the
-next step, type `python`, which opens the python interpreter in the shell. If
-_anaconda_ is installed and working, the version information it displays when it
-starts up will include “Anaconda”. To exit the Python shell, enter the command
-`quit()`. If the `conda` command cannot be found, check out steps (7) ff. in the
-Linux installation instructions (for both macOS and Linux).
+## 1. 📦 Installing Anaconda
+
+Anaconda is available for Windows, macOS, and Linux from:
+👉 [https://www.anaconda.com/distribution/](https://www.anaconda.com/distribution/)
+
+### Choose the installer for your operating system:
+- Windows/macOS: use the **graphical installer**
+- Linux: use the **command-line installer**
+
+> We strongly recommend installing Anaconda **for your user only** (not system-wide).
+> On Linux/macOS, this typically installs to `~/anaconda3`.
+
+Official guides:
+- [Installing on Windows](https://docs.anaconda.com/anaconda/install/windows/)
+- [Installing on macOS](https://docs.anaconda.com/anaconda/install/mac-os/)
+- [Installing on Linux](https://docs.anaconda.com/anaconda/install/linux/)
+
+Once installed:
+- On Windows/macOS, verify installation by launching **Anaconda Navigator**
+- On Linux/macOS CLI, follow the prompt to run `conda init`, then restart your shell
+  Test with:
+  ```bash
+  conda list
+  python  # You should see "Anaconda" in the version banner
+  quit()
+  ```
+
+---
+
+## 2. 🧪 Setting Up the ML Environment
+
+Once Anaconda is installed, you can set up the environment in two ways:
+
+### 2a. Anaconda Navigator (GUI)
+
+**Recommended for beginners on Windows/macOS**
+
+1. Launch **Anaconda Navigator**
+2. Go to **Environments → Import**
+3. Select the file `ml-environment.yml` from this repository
+4. Give the environment a name (e.g., `ml-workshop`) and click Import
+5. Once created, activate the environment and launch **Jupyter Notebook** from the GUI
+
+---
+
+### 2b. Conda via Command Line (Linux/macOS, advanced users)
+
+```bash
+# Clone or download this repository
+git clone https://github.com/BridgingAISocietySummerSchools/Hands-On-Notebooks.git
+cd Hands-On-Notebooks
+
+# Create environment
+conda env create -f ml-environment.yml
+
+# Activate it
+conda activate ml-workshop
+
+# Launch notebooks
+jupyter notebook
+```
+
+---
+
+## 3. 🐳 Docker (Optional for Experts)
+
+You can run a full environment in Docker without installing anything else.
+
+Build the image:
+```bash
+docker build -t ml-workshop-image .
+```
+
+Then launch the notebook server:
+```bash
+docker run --rm -u $(id -u):$(id -g) -p 8888:8888 -v $PWD:/data ml-workshop-image
+```
+
+Access Jupyter via [http://localhost:8888/](http://localhost:8888/)
+Copy the token from the terminal output when launching the container.
+
+> Note: This binds the current directory into the container, so changes you make to notebooks will be saved.
+
+---
+
+## 4. 🧠 Expert Setup (No Anaconda)
+
+If you already use virtual environments or your own Python setup, you can install required packages directly using `pip`.
+
+### Requirements
+Install the packages listed in `ml-environment.yml`, in particular:
+
+- `scikit-learn` ≥ 1.2
+- `tensorflow` ≥ 2.15
+
+Then launch Jupyter:
+```bash
+jupyter notebook
+```
+
+Start with `01_test_notebook.ipynb` to verify that everything works.
+
+---
+
+_Last updated: July 2025_
