@@ -1,8 +1,18 @@
-graphviz~=0.21
-matplotlib~=3.10.0
-notebook~=6.5.7
+# Core dependencies for machine learning tutorials
+# Compatible with Google Colab
+
+# Scientific computing and data manipulation
 numpy~=2.0.2
+pandas~=2.2.0
+scipy~=1.15.3
+
+# Machine learning
 scikit-learn~=1.6.1
-seaborn~=0.13.2
-tensorflow~=2.18.0
-torch~=2.6.0
+
+# Plotting and visualization
+# graphviz~=0.21
+# matplotlib~=3.10.0
+plotly>=5.24.0,<6.3.0
+
+# Jupyter environment (for local use; not needed in Colab)
+notebook>=6.5.0,<7.5.0
