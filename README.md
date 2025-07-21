@@ -1,12 +1,12 @@
-# Hands-On Notebooks 📓🧠💻
+# Hands-On Notebooks 📓🧑‍💻
 
-[![Python Version](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
-[![Jupyter](https://img.shields.io/badge/jupyter-notebook-orange)](https://jupyter.org)
-[![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-green.svg)](LICENSE)
-[![Colab Compatible](https://img.shields.io/badge/run%20in-colab-brightgreen)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/)
+[![Python Version](https://img.shields.io/badge/python-3.11-blue)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/)
 [![Difficulty](https://img.shields.io/badge/difficulty-beginner-success)](#)
 [![Duration](https://img.shields.io/badge/duration-3%20hours-brightgreen)](#)
-![Build Status](https://github.com/BridgingAISocietySummerSchools/Hands-On-Notebooks/actions/workflows/build_run_test.yml/badge.svg)
+![Docker + Notebook Test](https://github.com/BridgingAISocietySummerSchools/Hands-On-Notebooks/actions/workflows/build_run_test.yml/badge.svg)
+
 
 A curated collection of **Jupyter notebooks** to explore and teach the fundamentals of **machine learning**. These notebooks are practical, beginner-friendly, and support our interdisciplinary summer school curriculum.
 
