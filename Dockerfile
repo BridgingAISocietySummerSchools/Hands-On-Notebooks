@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:2.18.0-gpu-jupyter
+FROM tensorflow/tensorflow:2.18.0-jupyter
 
 WORKDIR /data
 
