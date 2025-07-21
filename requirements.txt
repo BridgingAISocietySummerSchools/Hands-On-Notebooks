@@ -8,11 +8,13 @@ scipy~=1.15.3
 
 # Machine learning
 scikit-learn~=1.6.1
+tensorflow~=2.18.0
+torch~=2.6.0
 
 # Plotting and visualization
 # graphviz~=0.21
-# matplotlib~=3.10.0
-plotly>=5.24.0,<6.3.0
+matplotlib~=3.10.0
+plotly~=5.24.1
 
 # Jupyter environment (for local use; not needed in Colab)
-notebook>=6.5.0,<7.5.0
+notebook>=6.5.0
