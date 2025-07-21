@@ -16,5 +16,8 @@ torch~=2.6.0
 matplotlib~=3.10.0
 plotly~=5.24.1
 
+# Interactive widgets
+ipywidgets~=7.7.1
+
 # Jupyter environment (for local use; not needed in Colab)
 notebook>=6.5.0
