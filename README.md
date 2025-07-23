@@ -11,9 +11,6 @@
 A curated collection of **Jupyter notebooks** to explore and teach the fundamentals of **machine learning**. These notebooks are practical, beginner-friendly, and support our interdisciplinary summer school curriculum.
 
 
-> ⚠️ _This repository is currently being updated. Expect changes in structure, content, and setup instructions._
-
-
 ## 🚀 Quick Start
 
 You can run all notebooks in your browser via **Google Colab** — no installation required:
