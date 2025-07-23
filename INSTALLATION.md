@@ -1,116 +1,144 @@
-
 # INSTALLATION.md
 
-## 🛠️ How to Set Up the Hands-On ML Notebooks Locally
+## 🚀 Quick Start: Run on Google Colab
 
-This guide walks you through installing everything you need to run the notebooks in this repository. We recommend using **Anaconda**, a free Python distribution that includes package management and environment setup tools.
+If you prefer not to install anything locally, run the notebooks directly in your browser using **Google Colab**:
 
-If you prefer not to install anything, you can use Google Colab instead:
 👉 [Open in Colab](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/)
 
 ---
 
-## 1. 📦 Installing Anaconda
+## 🛠️ Option 1: Anaconda (Recommended for Beginners)
 
-Anaconda is available for Windows, macOS, and Linux from:
-👉 [https://www.anaconda.com/distribution/](https://www.anaconda.com/distribution/)
+We recommend installing [**Anaconda**](https://www.anaconda.com/distribution/) to manage packages and environments easily. It works on Windows, macOS, and Linux.
 
-### Choose the installer for your operating system:
-- Windows/macOS: use the **graphical installer**
-- Linux: use the **command-line installer**
+### 📥 Step 1: Install Anaconda
 
-> We strongly recommend installing Anaconda **for your user only** (not system-wide).
+Choose the installer for your operating system:
+- **Windows/macOS:** use the graphical installer
+- **Linux:** use the command-line installer
+
+> ✅ Tip: Install Anaconda *for your user only* (not system-wide).
 > On Linux/macOS, this typically installs to `~/anaconda3`.
 
-Official guides:
+Useful guides:
 - [Installing on Windows](https://docs.anaconda.com/anaconda/install/windows/)
 - [Installing on macOS](https://docs.anaconda.com/anaconda/install/mac-os/)
 - [Installing on Linux](https://docs.anaconda.com/anaconda/install/linux/)
 
-Once installed:
-- On Windows/macOS, verify installation by launching **Anaconda Navigator**
-- On Linux/macOS CLI, follow the prompt to run `conda init`, then restart your shell
-  Test with:
-  ```bash
-  conda list
-  python  # You should see "Anaconda" in the version banner
-  quit()
-  ```
+### 🧪 Step 2: Set Up the Environment
 
----
-
-## 2. 🧪 Setting Up the ML Environment
-
-Once Anaconda is installed, you can set up the environment in two ways:
-
-### 2a. Anaconda Navigator (GUI)
-
-**Recommended for beginners on Windows/macOS**
-
-1. Launch **Anaconda Navigator**
-2. Go to **Environments → Import**
-3. Select the file `ml-environment.yml` from this repository
-4. Give the environment a name (e.g., `ml-workshop`) and click Import
-5. Once created, activate the environment and launch **Jupyter Notebook** from the GUI
-
----
-
-### 2b. Conda via Command Line (Linux/macOS, advanced users)
+Use the following commands to create and activate an environment with the required packages:
 
 ```bash
-# Clone or download this repository
+# Clone the repository
 git clone https://github.com/BridgingAISocietySummerSchools/Hands-On-Notebooks.git
 cd Hands-On-Notebooks
 
-# Create environment
-conda env create -f ml-environment.yml
-
-# Activate it
+# Create and activate the environment
+conda create -n ml-workshop python=3.11
 conda activate ml-workshop
+
+# Install the required packages
+pip install -r requirements.txt
+
+# Launch the notebooks
+jupyter notebook
+```
+
+---
+
+## 🐍 Option 2: pip + virtualenv (Lightweight Alternative)
+
+If you prefer to avoid Anaconda, you can use Python's built-in tools. This approach is ideal if you're already comfortable managing environments.
+
+```bash
+# Clone the repository
+git clone https://github.com/BridgingAISocietySummerSchools/Hands-On-Notebooks.git
+cd Hands-On-Notebooks
+
+# Create a virtual environment
+python -m venv venv
+
+# Activate the environment
+source venv/bin/activate       # macOS/Linux
+# .\venv\Scripts\activate       # Windows
+
+# Install the required packages
+pip install -r requirements.txt
+
+# Launch the notebooks
+jupyter notebook
+```
+
+### 💡 Using pyenv + pyenv-virtualenv (Advanced Users)
+
+If you're using [`pyenv`](https://github.com/pyenv/pyenv) with [`pyenv-virtualenv`](https://github.com/pyenv/pyenv-virtualenv), you can also create and manage your environment this way:
+
+```bash
+# Select or install a specific Python version
+pyenv install 3.11.9  # if not already installed
+pyenv virtualenv 3.11.9 ml-workshop
+pyenv activate ml-workshop
+
+# Move into the project directory
+cd Hands-On-Notebooks
+
+# Install requirements
+pip install -r requirements.txt
 
 # Launch notebooks
 jupyter notebook
 ```
 
+This gives you per-project Python version control and integrates well with `.python-version` files.
+
 ---
 
-## 3. 🐳 Docker (Optional for Experts)
+## 🐳 Option 3: Docker (Advanced/Isolated Setup)
 
-You can run a full environment in Docker without installing anything else.
+Use Docker to run everything in a containerized environment:
 
-Build the image:
+### Step 1: Build the Docker Image
+
 ```bash
 docker build -t ml-workshop-image .
 ```
 
-Then launch the notebook server:
+### Step 2: Run the Notebook Server
+
 ```bash
 docker run --rm -u $(id -u):$(id -g) -p 8888:8888 -v $PWD:/data ml-workshop-image
 ```
 
-Access Jupyter via [http://localhost:8888/](http://localhost:8888/)
-Copy the token from the terminal output when launching the container.
+Then open your browser at: [http://localhost:8888/](http://localhost:8888/)
+Copy the token from the terminal output when prompted.
 
-> Note: This binds the current directory into the container, so changes you make to notebooks will be saved.
+> 💾 The current directory is mounted into the container, so your work is saved outside the container.
 
 ---
 
-## 4. 🧠 Expert Setup (No Anaconda)
+## ✅ Verifying the Setup
 
-If you already use virtual environments or your own Python setup, you can install required packages directly using `pip`.
+After installing, open and run:
 
-### Requirements
-Install the packages listed in `ml-environment.yml`, in particular:
-
-- `scikit-learn` ≥ 1.2
-- `tensorflow` ≥ 2.15
-
-Then launch Jupyter:
-```bash
-jupyter notebook
+```text
+01_test_notebook.ipynb
 ```
 
-Start with `01_test_notebook.ipynb` to verify that everything works.
+If the notebook runs without error, your setup is complete.
+
+---
+
+## 📊 Setup Options Summary
+
+| Method            | Recommended For         | Setup Style             |
+|------------------|-------------------------|-------------------------|
+| Google Colab     | Everyone (quick start)  | No installation         |
+| Anaconda         | Beginners (Win/macOS)   | Full-featured GUI/CLI   |
+| pip + virtualenv | Python-savvy users      | Lightweight, flexible   |
+| pyenv            | Advanced CLI users      | Version-controlled envs |
+| Docker           | Experts, reproducibility| Isolated containers     |
 
 ---
 
