@@ -77,8 +77,8 @@ If you're using [`pyenv`](https://github.com/pyenv/pyenv) with [`pyenv-virtualen
 
 ```bash
 # Select or install a specific Python version
-pyenv install 3.11.9  # if not already installed
-pyenv virtualenv 3.11.9 ml-workshop
+pyenv install 3.11.13  # if not already installed
+pyenv virtualenv 3.11.13 ml-workshop
 pyenv activate ml-workshop
 
 # Move into the project directory
