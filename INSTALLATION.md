@@ -118,6 +118,23 @@ Copy the token from the terminal output when prompted.
 
 ---
 
+## 🔑 Optional: API Key for Notebook 5
+
+`05_agentic_ai.ipynb` has a few cells (marked 🔌) that call a real language model. They are
+optional — without a key those cells print a note and skip, and everything else runs normally.
+
+```bash
+cp .env.example .env      # then paste your key into .env
+```
+
+`.env` is listed in `.gitignore`, so the key stays on your machine. On **Colab** there is no
+`.env` file: add `OPENROUTER_API_KEY` under the 🔑 **Secrets** icon in the left sidebar instead.
+Free keys are available at [openrouter.ai/keys](https://openrouter.ai/keys).
+
+> ⚠️ Never type an API key directly into a notebook cell. Notebook outputs are committed too.
+
+---
+
 ## ✅ Verifying the Setup
 
 After installing, open and run:

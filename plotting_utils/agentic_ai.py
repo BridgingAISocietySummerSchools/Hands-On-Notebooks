@@ -254,7 +254,7 @@ def plot_token_counts(examples):
 
     ``examples`` is a list of ``(label, n_words, n_tokens)`` tuples.
     """
-    labels = [e[0] for e in examples]
+    labels = [textwrap.shorten(e[0], 30, placeholder="…") for e in examples]
     fig = go.Figure()
     fig.add_bar(x=labels, y=[e[1] for e in examples], name="Words", marker_color="#7fb3d5")
     fig.add_bar(x=labels, y=[e[2] for e in examples], name="Tokens", marker_color="#e59866")
@@ -265,6 +265,32 @@ def plot_token_counts(examples):
         barmode="group",
     )
     fig.show()
+
+
+def create_interactive_tokenizer(tokenize_fn, price_per_million=5.0):
+    """Type any text and see it as the model sees it — tokens, and what they cost."""
+    @interact_manual(
+        text=Text(value="Bridging AI & Society — a hands-on summer school.",
+                  description="Your text:", layout={"width": "80%"}),
+        requests_per_day=IntSlider(value=1000, min=0, max=100000, step=1000,
+                                   description="Req./day"),
+    )
+    def show(text, requests_per_day):
+        tokens = tokenize_fn(text)
+        if not tokens:
+            print("Type something above, then press Run Interact.")
+            return
+        print(f"📝 {len(text)} characters   →   {len(text.split())} words   "
+              f"→   {len(tokens)} tokens")
+        print(f"   {len(text) / len(tokens):.1f} characters per token\n")
+        print("🔤 " + " | ".join(tokens) + "\n")
+        cost = len(tokens) / 1_000_000 * price_per_million
+        print(f"💸 At ${price_per_million:.2f} per million input tokens:")
+        print(f"   one request:        ${cost:.6f}")
+        print(f"   {requests_per_day:,} requests/day: ${cost * requests_per_day:9.2f} per day"
+              f"   (${cost * requests_per_day * 365:,.0f} per year)")
+        print("   ...and that is the prompt alone. The answer is billed too, "
+              "usually at 3–5× the rate.")
 
 
 def plot_next_token_distribution(context, distribution, top_k=10):
@@ -388,18 +414,32 @@ def plot_retrieval_scores(query, results, threshold=None):
     fig.show()
 
 
-def plot_document_space(doc_coords, doc_ids, doc_sources, query_coords=None, query_text=""):
-    """2-D projection of the document vectors, plus the query vector."""
+def plot_document_space(doc_coords, doc_ids, doc_sources, query_coords=None, query_text="",
+                        doc_groups=None, doc_hover=None):
+    """2-D projection of the document vectors, plus the query vector.
+
+    ``doc_groups`` optionally assigns each document to a category, so that
+    topically related documents get the same colour.
+    """
+    groups = doc_groups if doc_groups is not None else ["Documents"] * len(doc_ids)
+    hover = doc_hover if doc_hover is not None else doc_sources
+    palette = ["#5499c7", "#e59866", "#48c9b0", "#af7ac5", "#f7dc6f", "#ec7063"]
+
     fig = go.Figure()
-    fig.add_trace(go.Scatter(
-        x=doc_coords[:, 0], y=doc_coords[:, 1],
-        mode="markers+text",
-        text=doc_ids,
-        textposition="top center",
-        marker=dict(size=12, color="#5499c7"),
-        hovertext=doc_sources,
-        name="Documents",
-    ))
+    for n, group in enumerate(dict.fromkeys(groups)):
+        colour = palette[n % len(palette)]          # cycle, so no group is ever dropped
+        picks = [i for i, g in enumerate(groups) if g == group]
+        fig.add_trace(go.Scatter(
+            x=[doc_coords[i, 0] for i in picks],
+            y=[doc_coords[i, 1] for i in picks],
+            mode="markers+text",
+            text=[doc_ids[i] for i in picks],
+            textposition="top center",
+            marker=dict(size=12, color=colour),
+            hovertext=[hover[i] for i in picks],
+            hoverinfo="text",
+            name=group,
+        ))
     if query_coords is not None:
         fig.add_trace(go.Scatter(
             x=[query_coords[0]], y=[query_coords[1]],
