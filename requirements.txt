@@ -21,7 +21,7 @@ ipywidgets~=7.7.1
 
 # HTTP client, used by llm_client.py for the optional "real LLM" cells
 # of 05_agentic_ai.ipynb (already present in Colab)
-requests~=2.32
+requests~=2.32.0
 
 # Jupyter environment (for local use; not needed in Colab)
 notebook>=6.5.0
