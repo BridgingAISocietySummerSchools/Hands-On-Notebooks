@@ -20,6 +20,23 @@ You can run all notebooks in your browser via **Google Colab** — no installati
 2. ML Fundamentals [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/blob/main/02_ml_fundamentals.ipynb)
 3. Decision Trees [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/blob/main/03_decision_trees.ipynb)
 4. Neural Networks [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/blob/main/04_neural_nets.ipynb)
+5. Modern AI: LLMs, RAG & Agents [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/blob/main/05_agentic_ai.ipynb)
+
+### 🔌 Optional: an API key for Notebook 5
+
+Notebook 5 has a handful of cells (marked 🔌) that call a **real** language model so you can
+compare it with the toy model built in the notebook. They are entirely optional — without a
+key those cells print a short note and everything else runs as normal.
+
+```bash
+cp .env.example .env     # then paste your key into .env
+```
+
+`.env` is listed in `.gitignore`, so your key never reaches the repository. On Colab, add
+`OPENROUTER_API_KEY` under 🔑 **Secrets** in the left sidebar instead. Free keys:
+[openrouter.ai/keys](https://openrouter.ai/keys).
+
+> ⚠️ Never paste an API key into a notebook cell — notebook outputs get committed too.
 
 To run notebooks locally (e.g. via Anaconda, Docker, or virtual environments), follow the instructions in:
 📄 [INSTALLATION.md](INSTALLATION.md)
