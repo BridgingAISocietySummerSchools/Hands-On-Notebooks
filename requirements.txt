@@ -25,3 +25,7 @@ requests~=2.32.0
 
 # Jupyter environment (for local use; not needed in Colab)
 notebook>=6.5.0
+
+# ipykernel 7.x ships a new kernel protocol (5.5) that the current VS Code
+# Jupyter extension cannot connect to -- cells then never run. Stay on 6.x.
+ipykernel>=6.29,<7

@@ -145,6 +145,33 @@ After installing, open and run:
 
 If the notebook runs without error, your setup is complete.
 
+### If cells will not run in VS Code
+
+1. **Register the environment as a kernel** (only needed once):
+
+   ```bash
+   .venv/bin/python -m ipykernel install --user \
+     --name hands-on-notebooks --display-name "Python (Hands-On-Notebooks)"
+   ```
+
+   The kernelspec that ships inside `ipykernel` uses a bare `python` in its
+   `argv`. macOS has no `python` on `PATH` (only `python3`), so launching it
+   directly fails. The command above writes an absolute interpreter path.
+
+2. **Pick the right kernel**: *Select Kernel* → *Python Environments* →
+   the interpreter at `./.venv/bin/python`. Do **not** pick `/usr/bin/python3` —
+   it has NumPy and scikit-learn but no `ipywidgets`, so `plotting_utils` fails
+   to import.
+
+3. **Keep `ipykernel` on 6.x.** Version 7 introduced kernel protocol 5.5, which
+   the current VS Code Jupyter extension cannot connect to — the kernel starts
+   but cells never finish. `requirements.txt` pins this; to repair an existing
+   environment:
+
+   ```bash
+   .venv/bin/python -m pip install "ipykernel>=6.29,<7"
+   ```
+
 ---
 
 ## 📊 Setup Options Summary
@@ -159,4 +186,4 @@ If the notebook runs without error, your setup is complete.
 
 ---
 
-_Last updated: July 2025_
+_Last updated: August 2026_

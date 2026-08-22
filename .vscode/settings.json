@@ -1,0 +1,9 @@
+{
+  // Always use the project virtualenv, never the system /usr/bin/python3
+  // (that one has numpy/sklearn but no ipywidgets, so plotting_utils fails to import).
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "jupyter.kernels.excludePythonEnvironments": [
+    "/usr/bin/python3"
+  ],
+  "notebook.output.textLineLimit": 60
+}
