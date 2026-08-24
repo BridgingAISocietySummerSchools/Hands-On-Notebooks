@@ -20,13 +20,25 @@ You can run all notebooks in your browser via **Google Colab** — no installati
 2. ML Fundamentals [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/blob/main/02_ml_fundamentals.ipynb)
 3. Decision Trees [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/blob/main/03_decision_trees.ipynb)
 4. Neural Networks [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/blob/main/04_neural_nets.ipynb)
-5. Modern AI: LLMs, RAG & Agents [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/blob/main/05_agentic_ai.ipynb)
+5. Modern AI in Practice — RAG in 90 minutes [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/blob/main/05_agentic_ai.ipynb)
 
-### 🔌 Optional: an API key for Notebook 5
+Notebook 5 comes in two versions:
 
-Notebook 5 has a handful of cells (marked 🔌) that call a **real** language model so you can
-compare it with the toy model built in the notebook. They are entirely optional — without a
-key those cells print a short note and everything else runs as normal.
+| Version | Duration | For |
+|---------|----------|-----|
+| [`05_agentic_ai.ipynb`](05_agentic_ai.ipynb) | ~90 min | **The taught session.** Application-focused, RAG at the centre, five short hands-on tasks. Calls a real model throughout. |
+| [`self_learning/05_agentic_ai.ipynb`](self_learning/05_agentic_ai.ipynb) [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/blob/main/self_learning/05_agentic_ai.ipynb) | ~3 h | **Self-study deep dive.** Builds a language model from scratch, four failure modes, RAG, agents, memory, multi-agent systems, prompt injection. Runs entirely offline. |
+
+### 🔑 An API key for Notebook 5
+
+Notebook 5 talks to a **real** language model through [OpenRouter](https://openrouter.ai/).
+
+- **In the taught 90-minute session**, the instructor hands out a key. The setup cell asks for
+  it in a **hidden input box** (`getpass`), so it stays in memory and never lands in the file.
+- **In the self-study version**, those cells are marked 🔌 and entirely optional — without a
+  key they print a short note and everything else runs as normal.
+
+To use your own key instead:
 
 ```bash
 cp .env.example .env     # then paste your key into .env
