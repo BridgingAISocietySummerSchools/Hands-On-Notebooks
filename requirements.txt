@@ -18,7 +18,7 @@ matplotlib~=3.10.0
 plotly~=5.24.1
 
 # Interactive widgets
-ipywidgets~=7.7.1
+ipywidgets~=8.1
 
 # HTTP client, used by llm_client.py for the optional "real LLM" cells
 # of 05_agentic_ai.ipynb (already present in Colab)

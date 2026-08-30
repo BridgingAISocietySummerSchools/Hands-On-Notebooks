@@ -96,9 +96,10 @@ def plot_computer_best_line(house_sizes, house_prices, best_slope, best_intercep
     ))
 
     fig.update_layout(
-        title=f"🤖 Computer's Best Line: Price = ${best_slope:.3f} x Size + ${best_intercept:.1f} (Error: {best_error:.2f})",
+        title=(f"🤖 Computer's Best Line: Price = {best_slope:.3f} × Size "
+               f"+ {best_intercept:.1f}  (MSE: {best_error:.2f})"),
         xaxis_title="House Size (sq ft)",
-        yaxis_title="Price ($1000)",
+        yaxis_title="Price ($1000s)",
         height=400
     )
 
