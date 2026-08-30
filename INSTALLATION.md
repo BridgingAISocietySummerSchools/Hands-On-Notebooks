@@ -36,7 +36,7 @@ git clone https://github.com/BridgingAISocietySummerSchools/Hands-On-Notebooks.g
 cd Hands-On-Notebooks
 
 # Create and activate the environment
-conda create -n ml-workshop python=3.11
+conda create -n ml-workshop python=3.13
 conda activate ml-workshop
 
 # Install the required packages
@@ -77,8 +77,8 @@ If you're using [`pyenv`](https://github.com/pyenv/pyenv) with [`pyenv-virtualen
 
 ```bash
 # Select or install a specific Python version
-pyenv install 3.11.13  # if not already installed
-pyenv virtualenv 3.11.13 ml-workshop
+pyenv install 3.13.15  # if not already installed
+pyenv virtualenv 3.13.15 ml-workshop
 pyenv activate ml-workshop
 
 # Move into the project directory
@@ -169,7 +169,7 @@ If the notebook runs without error, your setup is complete.
    environment:
 
    ```bash
-   .venv/bin/python -m pip install "ipykernel>=6.29,<7"
+   .venv/bin/python -m pip install "ipykernel~=6.17.1"
    ```
 
 ---

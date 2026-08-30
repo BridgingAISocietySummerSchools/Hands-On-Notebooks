@@ -1,6 +1,6 @@
 # Hands-On Notebooks 📓🧑‍💻
 
-[![Python Version](https://img.shields.io/badge/python-3.11-blue)](https://www.python.org/)
+[![Python Version](https://img.shields.io/badge/python-3.13-blue)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/)
 [![Difficulty](https://img.shields.io/badge/difficulty-beginner-success)](#)

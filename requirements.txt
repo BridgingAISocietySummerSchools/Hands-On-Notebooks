@@ -1,15 +1,16 @@
 # Core dependencies for machine learning tutorials
-# Compatible with Google Colab
+# Pinned to the versions Google Colab currently ships (Python 3.13.15),
+# so local runs match what participants see in Colab.
 
 # Scientific computing and data manipulation
-numpy~=2.0.2
-pandas~=2.2.0
-scipy~=1.16.0
+numpy~=2.1.3
+pandas~=2.2.3
+scipy~=1.16.3
 
 # Machine learning
 scikit-learn~=1.6.1
-tensorflow~=2.18.0
-torch~=2.6.0
+tensorflow~=2.20.0
+torch~=2.11.0
 
 # Plotting and visualization
 # graphviz~=0.21
@@ -21,11 +22,12 @@ ipywidgets~=7.7.1
 
 # HTTP client, used by llm_client.py for the optional "real LLM" cells
 # of 05_agentic_ai.ipynb (already present in Colab)
-requests~=2.32.0
+requests~=2.32.4
 
 # Jupyter environment (for local use; not needed in Colab)
 notebook>=6.5.0
 
 # ipykernel 7.x ships a new kernel protocol (5.5) that the current VS Code
-# Jupyter extension cannot connect to -- cells then never run. Stay on 6.x.
-ipykernel>=6.29,<7
+# Jupyter extension cannot connect to -- cells then never run. Stay on 6.x,
+# which is also what Colab ships.
+ipykernel~=6.17.1
