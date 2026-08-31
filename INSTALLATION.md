@@ -140,7 +140,7 @@ Free keys are available at [openrouter.ai/keys](https://openrouter.ai/keys).
 After installing, open and run:
 
 ```text
-01_test_notebook.ipynb
+00_test_notebook.ipynb
 ```
 
 If the notebook runs without error, your setup is complete.

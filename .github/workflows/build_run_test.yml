@@ -29,7 +29,7 @@ jobs:
           python -m pip list
       - name: Convert test notebook
         run: |
-          python -m jupyter nbconvert --execute --to html 01_test_notebook.ipynb
+          python -m jupyter nbconvert --execute --to html 00_test_notebook.ipynb
   docker:
     needs: build
     runs-on: ubuntu-latest

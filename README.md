@@ -16,8 +16,9 @@ A curated collection of **Jupyter notebooks** to explore and teach the fundament
 You can run all notebooks in your browser via **Google Colab** — no installation required:
 👉 [Open in Google Colab](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/)
 
-1. Test Notebook [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/blob/main/01_test_notebook.ipynb)
-2. ML Fundamentals [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/blob/main/02_ml_fundamentals.ipynb)
+0. Test Notebook [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/blob/main/00_test_notebook.ipynb)
+1. Classification & Evaluation [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/blob/main/01_classification.ipynb)
+2. Regression & Gradient Descent [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/blob/main/02_regression.ipynb)
 3. Decision Trees [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/blob/main/03_decision_trees.ipynb)
 4. Neural Networks [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/blob/main/04_neural_nets.ipynb)
 5. Modern AI in Practice — RAG in 90 minutes [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/blob/main/05_agentic_ai.ipynb)
