@@ -1,10 +1,10 @@
 """
-Helper functions for ``05_agentic_ai_benchmark.ipynb``.
+Benchmark helpers for ``05_agentic_ai_llms.ipynb``.
 
-That notebook asks a sharper version of the question in
-``05_agentic_ai_simple.ipynb``: *we have the actual data sets from Class 1 and
-Class 2 and the actual models we trained on them — so how does a language model
-score on the very same benchmark?*
+That notebook asks: *we have the actual data sets from Class 1 and Class 2, and
+the actual models we trained on them — so how does a language model score on the
+very same benchmark?* The sentiment data and the small parsers live next door in
+``llm_simple.py``; the screening benchmark, the scoring and the charts live here.
 
 As in the other notebooks, the data plumbing, the plots and the scoring live
 here so the notebook itself stays short. **The prompting stays in the

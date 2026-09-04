@@ -1,8 +1,9 @@
 """
 A tiny client for talking to a real large language model.
 
-Used by the optional cells in ``05_agentic_ai.ipynb``. Everything in that
-notebook also works *without* a key — these cells then simply skip.
+Used by the Class 5 notebooks (``05_agentic_ai_llms.ipynb`` and
+``05_agentic_ai_rag.ipynb``). The RAG notebook also works *without* a key —
+those cells then simply skip.
 
 The API key is read from, in this order:
 

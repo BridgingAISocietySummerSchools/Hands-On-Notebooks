@@ -1,5 +1,5 @@
 """
-Helper functions for ``05_agentic_ai_simple.ipynb``.
+Helper functions for ``05_agentic_ai_llms.ipynb``.
 
 That notebook asks one question: *can a language model do the classification and
 regression jobs we built by hand in classes 1 and 2 — without any training?*

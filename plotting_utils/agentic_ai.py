@@ -2,7 +2,7 @@
 Modern AI (LLMs, RAG & Agents) helper functions for the agentic AI notebook.
 
 This module contains the data sets, plotting functions and interactive widgets
-used by ``05_agentic_ai.ipynb``. As in the other notebooks, the goal is to keep
+used by ``05_agentic_ai_rag.ipynb``. As in the other notebooks, the goal is to keep
 the notebook focused on the teaching content rather than on plotting code.
 
 Everything in here runs fully offline — no API keys, no downloads.

@@ -120,7 +120,7 @@ Copy the token from the terminal output when prompted.
 
 ## 🔑 Optional: API Key for Notebook 5
 
-`05_agentic_ai.ipynb` has a few cells (marked 🔌) that call a real language model. They are
+`05_agentic_ai_rag.ipynb` has a few cells (marked 🔌) that call a real language model. They are
 optional — without a key those cells print a note and skip, and everything else runs normally.
 
 ```bash
