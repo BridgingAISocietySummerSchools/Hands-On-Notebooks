@@ -23,13 +23,15 @@ You can run all notebooks in your browser via **Google Colab** — no installati
 4. Neural Networks [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/blob/main/04_neural_nets.ipynb)
 5. Modern AI in Practice — RAG in 90 minutes [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/blob/main/05_agentic_ai.ipynb)
 5b. Can We Just *Ask* an AI Instead? — the gentle version [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/blob/main/05_agentic_ai_simple.ipynb)
+5c. We Have the Data. Let's Settle It. — the benchmark version [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/blob/main/05_agentic_ai_benchmark.ipynb)
 
-Notebook 5 comes in three versions:
+Notebook 5 comes in four versions:
 
 | Version | Duration | For |
 |---------|----------|-----|
 | [`05_agentic_ai.ipynb`](05_agentic_ai.ipynb) | ~90 min | **The taught session.** Application-focused, RAG at the centre, five short hands-on tasks. Calls a real model throughout. |
 | [`05_agentic_ai_simple.ipynb`](05_agentic_ai_simple.ipynb) [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/blob/main/05_agentic_ai_simple.ipynb) | ~70 min | **The gentle version.** For participants new to Python. Uses a language model for the classification and regression tasks from Classes 1–2 — no training data — then compares it against dumb baselines and the trained models. Four tasks, each one sentence to edit. |
+| [`05_agentic_ai_benchmark.ipynb`](05_agentic_ai_benchmark.ipynb) [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/blob/main/05_agentic_ai_benchmark.ipynb) | ~85 min | **The benchmark version.** Puts a language model on the *actual* data from Classes 1 and 2 — the same patients, the same houses, the same metrics — with and without examples in the prompt, and reads the scoreboard. Ends on cost and latency. Runs end to end in well under a minute. |
 | [`self_learning/05_agentic_ai.ipynb`](self_learning/05_agentic_ai.ipynb) [![Run in Colab](https://img.shields.io/badge/run%20in-colab-yellow)](https://colab.research.google.com/github/BridgingAISocietySummerSchools/Hands-On-Notebooks/blob/main/self_learning/05_agentic_ai.ipynb) | ~3 h | **Self-study deep dive.** Builds a language model from scratch, four failure modes, RAG, agents, memory, multi-agent systems, prompt injection. Runs entirely offline. |
 
 ### 🔑 An API key for Notebook 5
@@ -53,7 +55,8 @@ cp .env.example .env     # then paste your key into .env
 
 For a whole classroom, a cheaper model keeps the bill small — set
 `OPENROUTER_MODEL=anthropic/claude-haiku-4.5` in `.env`. The gentle version makes about
-30 short calls per participant.
+30 short calls per participant; the benchmark version makes about 105 and pins that small
+model itself, which comes to roughly **5 cents per participant**.
 
 > ⚠️ Never paste an API key into a notebook cell — notebook outputs get committed too.
 

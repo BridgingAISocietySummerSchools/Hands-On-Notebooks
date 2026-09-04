@@ -15,12 +15,15 @@ Get a key at https://openrouter.ai/keys and copy ``.env.example`` to ``.env``.
 
 import json
 import os
+import threading
 
 API_URL = "https://openrouter.ai/api/v1/chat/completions"
 DEFAULT_MODEL = "anthropic/claude-opus-5"
 
 # Running total, so the notebook can show what these calls actually cost.
+# The benchmark notebook sends several calls at once, so the update is locked.
 USAGE = {"calls": 0, "prompt_tokens": 0, "completion_tokens": 0, "cost": 0.0}
+_USAGE_LOCK = threading.Lock()
 
 NO_KEY_MESSAGE = (
     "⏭️  Skipped — no API key found.\n"
@@ -115,10 +118,11 @@ def llm(prompt, system=None, model=None, max_tokens=800, temperature=0.0,
     payload = response.json()
 
     usage = payload.get("usage", {})
-    USAGE["calls"] += 1
-    USAGE["prompt_tokens"] += usage.get("prompt_tokens", 0)
-    USAGE["completion_tokens"] += usage.get("completion_tokens", 0)
-    USAGE["cost"] += usage.get("cost", 0.0) or 0.0
+    with _USAGE_LOCK:
+        USAGE["calls"] += 1
+        USAGE["prompt_tokens"] += usage.get("prompt_tokens", 0)
+        USAGE["completion_tokens"] += usage.get("completion_tokens", 0)
+        USAGE["cost"] += usage.get("cost", 0.0) or 0.0
 
     choice = payload["choices"][0]
     message = choice.get("message", {})
