@@ -151,6 +151,15 @@ class ScreeningBenchmark:
         self.tuned_threshold = round(self.prevalence, 2)
         self.model_pred_tuned = (self.model_risk >= self.tuned_threshold).astype(int)
 
+        # Four patients -- two ill, two not, in a shuffled order -- for the
+        # "guess it yourself before the model does" exercise. The selection
+        # happens here rather than in the notebook so that reading the notebook
+        # cell does not give the answers away.
+        ill = rng.choice(np.where(self.truth == 1)[0], 2, replace=False)
+        healthy = rng.choice(np.where(self.truth == 0)[0], 2, replace=False)
+        self.quiz_index = np.concatenate([ill, healthy])
+        rng.shuffle(self.quiz_index)
+
     def describe(self):
         """Print what we are about to benchmark on."""
         n = len(self.patients)
@@ -165,7 +174,7 @@ class ScreeningBenchmark:
         print(f"   Deliberately balanced, so 'always say healthy' scores 50% here, not 90%.")
         print(f"   Every approach in this notebook is judged on these same {n} people.")
         print(f"   Because of that, Class 1's model also gets its threshold moved from 0.50 "
-              f"to {self.tuned_threshold:.2f} — see Step 5.")
+              f"to {self.tuned_threshold:.2f}, to match this sample.")
 
 
 def load_screening_benchmark(n_benchmark=50, seed=7):

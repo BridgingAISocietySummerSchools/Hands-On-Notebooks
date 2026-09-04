@@ -115,11 +115,14 @@ def _in_notebook():
 # 3. Showing classification results
 # ---------------------------------------------------------------------------
 
-def show_label_results(texts, expected, predicted, max_chars=60):
+def show_label_results(texts, expected, predicted, max_chars=60,
+                       note="— with zero training examples."):
     """Print a review-by-review table and return the accuracy.
 
     Returns the fraction correct, so the notebook can compare it to the
-    accuracy of the trained classifier from Class 1.
+    accuracy of the trained classifier from Class 1. ``note`` closes the
+    summary line: override it when the model *did* get examples, so the
+    printout does not claim otherwise.
     """
     rows = []
     for text, truth, guess in zip(texts, expected, predicted):
@@ -140,7 +143,7 @@ def show_label_results(texts, expected, predicted, max_chars=60):
     correct = sum(g == t for g, t in zip(predicted, expected))
     total = len(expected)
     print(f"\n🎯 The model agreed with us on {correct} of {total} reviews "
-          f"({correct / total:.0%}) — with zero training examples.")
+          f"({correct / total:.0%}) {note}")
     return correct / total
 
 
